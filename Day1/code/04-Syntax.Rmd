@@ -77,7 +77,9 @@ select(beatles, name, birth)
 
 ## Your turn
 Select just the instrument column
-
+```{r}
+select(beatles, instrument)
+```
 
 
 ## Base R
@@ -92,13 +94,13 @@ beatles$birth
 Select just the instrument column using brackets
 
 ```{r}
-
+beatles[, "instrument"]
 ```
 
 Select just the instrument column using a dollar sign.
 
 ```{r}
-
+beatles$instrument
 ```
 
 ## Filter
@@ -121,6 +123,7 @@ Modify  the code below to filter out the rows for which birth is 1943 or instrum
 
 ```{r}
 filter(beatles, birth==1940 & instrument == "guitar")
+filter(beatles, birth==1943 | instrument == "drums")
 ```
 
 
@@ -142,6 +145,9 @@ library(babynames)
 
 ## Your turn
 Do you remember how to view a dataset?
+```{r}
+babynames
+```
 
 ## Saving results
 
@@ -162,13 +168,20 @@ Try to:
 - Assign that data its own name 
 - Use your subsetted data to create a ggplot graphic of the popularity of your name over time
 
+```{r}
+reia = filter(babynames, name == "Reia", sex == "F")
+reia
+
+ggplot(reia, aes(x=year, y=n)) + geom_point() + geom_line()
+```
+
 ## Steps
 
 ```{r}
-boys_2015 <- filter(babynames, year == 2015, sex == "M")
-boys_2015 <- select(boys_2015, name, n)
-boys_2015 <- arrange(boys_2015, desc(n))
-boys_2015
+girls_2015 <- filter(babynames, year == 2015, sex == "F")
+girls_2015 <- select(girls_2015, name, n)
+girls_2015 <- arrange(girls_2015, desc(n))
+girls_2015
 ```
 
 Nested nonsense
@@ -197,12 +210,18 @@ Use %>% to write a sequence of functions that:
 - Arrange the results so that the most popular names are near the top.
 
 ```{r}
-
+girls_2015 <- babynames %>% filter( year == 2015, sex == "F") %>%  select(name, n) %>% arrange(desc(n))
+girls_2015
 ```
 
 ## Diamonds data
 
 ```{r}
-
+diamonds
+````
+``` {r}
+diamonds %>%
+filter(y < 30 & x > 2) %>%
+ggplot() +
+geom_point(aes(x = x, y = y))
 ```
-

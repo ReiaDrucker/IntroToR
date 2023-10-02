@@ -10,9 +10,8 @@ editor_options:
 ## Your turn 1
 
 ```{r}
-
+WorldPhones
 ```
-
 
 ## Vectors and matrices
 
@@ -50,7 +49,9 @@ array(c(1, 2, 3, 4, 5, 6), dim = c(2, 2, 3))
 ```
 
 ## Data types
+
 Numeric
+
 ```{r}
 1 + 1
 3000000
@@ -58,6 +59,7 @@ class(0.00001)
 ```
 
 Character
+
 ```{r}
 "hello"
 class("hello")
@@ -73,6 +75,7 @@ paste("hello", "world")
 ```
 
 Logical
+
 ```{r}
 3 > 4
 class(TRUE)
@@ -80,13 +83,14 @@ class(T)
 ```
 
 Factor (danger zone!)
+
 ```{r}
 fac <- factor(c("a", "b", "c"))
 fac
 class(fac)
 ```
 
-## Your turn 2 
+## Your turn 2
 
 Make a vector that contains the number 1, the letter R, and the logical TRUE
 
@@ -95,6 +99,7 @@ Make a vector that contains the number 1, the letter R, and the logical TRUE
 ```
 
 ## Quiz
+
 What type of data will result?
 
 ## Lists
@@ -105,13 +110,15 @@ class(lst)
 ```
 
 ## Data frames
+
 ```{r}
 df <- data.frame(c(1, 2, 3), 
  c("R","S","T"), c(TRUE, FALSE, TRUE))
 class(df)
 ```
 
-## Naming 
+## Naming
+
 ```{r}
 nvec <- c(one = 1, two = 2, three = 3)
 nlst <- list(one = 1, two = 2, many = c(3, 4, 5))
@@ -126,4 +133,6 @@ ndf <- data.frame(numbers = c(1, 2, 3),
 ```{r}
 names(ndf)
 names(nvec)
+names(nlst)
+nlst
 ```
