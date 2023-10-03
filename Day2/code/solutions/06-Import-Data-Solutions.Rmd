@@ -7,7 +7,7 @@ editor_options:
 
 ```{r setup}
 library(readr)
-library(skimr)
+library(skimr)  
 library(dplyr)
 ```
 
@@ -15,7 +15,7 @@ library(dplyr)
 After you've loaded the data, create a chunk (do you remember how?) and paste the code into it.
 
 ```{r}
-GSS <- read_csv("~/project/data/GSS.csv")
+GSS <- read_csv("../../data/GSS.csv")
 ```
 
 ## Skimming
@@ -43,26 +43,30 @@ GSS %>% skim()
 How is the `skim()` output different?
 
 ```{r}
-GSS1 <- read.csv("~/project/data/GSS.csv")
+GSS1 <- read.csv("../../data/GSS.csv")
 GSS1 %>% skim()
 ```
 
 ## Parsing
 
 ```{r}
-nimbus <- read_csv("~/project/data/nimbus.csv")
-nimbus <- read_csv("~/project/data/nimbus.csv", na = ".")
+nimbus <- read_csv("../../data/nimbus.csv")
+nimbus <- read_csv("../../data/nimbus.csv", na = ".")
 nimbus %>% skim(ozone)
 ```
 
 ```{r}
-nimbus <- read_csv("~/project/data/nimbus.csv", na = ".",  col_types = list(ozone = col_double()))
+nimbus <- read_csv("../../data/nimbus.csv", na = ".",  col_types = list(ozone = col_double()))
 ```
 
 ## Plot
+```{r}
+install.packages(rtools)
+```
 
 ```{r}
-nimbus <- read_csv("~/project/data/nimbus.csv", na = ".", 
+install.packages(c("MAP", "mapproj"))
+nimbus <- read_csv("../../data/nimbus.csv", na = ".", 
   col_types = list(ozone = col_double()))
 
 library(viridis)
@@ -78,7 +82,7 @@ nimbus %>%
 ## Writing files
 
 ```{r, eval=FALSE}
-write_csv(nimbus, file = "~/project/data/nimbus2.csv")
+write_csv(nimbus, file = "../../data/nimbus2.csv")
 ```
 
 
